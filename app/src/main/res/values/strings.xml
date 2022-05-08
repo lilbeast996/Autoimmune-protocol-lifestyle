@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Autoimmune protocol lifestyle</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="nav_header_title">Hello,</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_food_list">Food list</string>
+    <string name="menu_about">About</string>
+    <string name="menu_catalog">Catalog</string>
+    <string name="menu_my_recipes">My Recipes</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_step_counter">Step counter</string>
+    <string name="menu_meditation">Meditation</string>
+    <string name="menu_signout">Sign out</string>
+
+    <string name="slide_one">Manage your diet &amp; choose from plenty of recipes</string>
+    <string name="slide_two">Keep track of your daily physical activity\n &amp; meditation</string>
+    <string name="Open">open</string>
+    <string name="Close">close</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="got_it">GOT IT</string>
+
+    <string name="beginner">BEGINNER</string>
+    <string name="intermediate">INTERMEDIATE</string>
+    <string name="advanced">ADVANCED</string>
+
+
+    <string name="logo">Autoimmune protocol\n lifestyle</string>
+    <string name="about_intro">The Autoimmune Protocol, abbreviated AIP, is a complementary approach to chronic disease management focused on providing the body with the nutritional resources required for immune regulation, gut health, hormone regulation and tissue healing while removing inflammatory stimuli from both diet and lifestyle. The AIP diet provides balanced and complete nutrition while avoiding processed and refined foods and empty calories. The AIP lifestyle encourages sufficient sleep, stress management and activity as these are important immune modulators.\n</string>
+</resources>

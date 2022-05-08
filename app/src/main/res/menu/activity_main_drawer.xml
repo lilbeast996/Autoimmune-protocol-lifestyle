@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/about"
+        android:title="@string/menu_about" />
+
+    <item android:title="Food">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_ingredients"
+                    android:icon="@drawable/diet"
+                    android:title="@string/menu_food_list" />
+                <item
+                    android:id="@+id/nav_catalog"
+                    android:icon="@drawable/recipe_book"
+                    android:title="@string/menu_catalog" />
+                <item
+                    android:id="@+id/nav_my_recipes"
+                    android:icon="@drawable/my_recipe"
+                    android:title="@string/menu_my_recipes" />
+                <item
+                    android:id="@+id/nav_favorites"
+                    android:icon="@drawable/heart"
+                    android:title="@string/menu_favorites" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Activity">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_meditation"
+                    android:icon="@drawable/exercise"
+                    android:title="@string/menu_meditation" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Others">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_signout"
+                    android:icon="@drawable/exit"
+                    android:title="@string/menu_signout" />
+            </group>
+        </menu>
+    </item>
+
+</menu>

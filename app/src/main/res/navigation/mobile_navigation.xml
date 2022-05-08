@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_about">
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.healthy_lifestyle.aip_lifestyle.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/nav_ingredients"
+        android:name="com.healthy_lifestyle.aip_lifestyle.foodList.FoodListFragment"
+        android:label="@string/menu_food_list"
+        tools:layout="@layout/fragment_foodlist" />
+
+
+    <fragment
+        android:id="@+id/nav_catalog"
+        android:name="com.healthy_lifestyle.aip_lifestyle.catalog.CatalogFragment"
+        android:label="@string/menu_catalog"
+        tools:layout="@layout/fragment_catalog" />
+
+    <fragment
+        android:id="@+id/nav_my_recipes"
+        android:name="com.healthy_lifestyle.aip_lifestyle.my_recipes.MyRecipesFragment"
+        android:label="@string/menu_my_recipes"
+        tools:layout="@layout/fragment_my_recipes" />
+
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.healthy_lifestyle.aip_lifestyle.favorite.FavoriteFragment"
+        android:label="@string/menu_favorites"
+        tools:layout="@layout/fragment_favorite" />
+
+    <fragment
+        android:id="@+id/nav_meditation"
+        android:name="com.healthy_lifestyle.aip_lifestyle.meditation.MeditationFragment"
+        android:label="@string/menu_meditation"
+        tools:layout="@layout/fragment_favorite" />
+
+</navigation>

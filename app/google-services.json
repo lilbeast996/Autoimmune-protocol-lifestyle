@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1058869195443",
+    "project_id": "autoimmune-protocol-lifestyle",
+    "storage_bucket": "autoimmune-protocol-lifestyle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058869195443:android:cf43f9d99072686123f6c6",
+        "android_client_info": {
+          "package_name": "com.healthy_lifestyle.aip_lifestyle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058869195443-hbsv7t0gbgtgtgn1qf8o0p4i53krcr00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfGhq6IrIiAMfc7MIzN-izEH2maVG5JGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058869195443-hbsv7t0gbgtgtgn1qf8o0p4i53krcr00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
