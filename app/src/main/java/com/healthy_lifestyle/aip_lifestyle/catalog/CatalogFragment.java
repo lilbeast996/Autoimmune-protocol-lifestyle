@@ -50,7 +50,7 @@ public class CatalogFragment extends Fragment implements CatalogView{
         onLoadingStarted();
 
         recipeList = new ArrayList<>();
-        recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, true);
+        recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, true, "catalog");
         rvRecipes.setAdapter(recipeAdapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference(Constants.RECIPES_REFERENCE);
@@ -64,7 +64,7 @@ public class CatalogFragment extends Fragment implements CatalogView{
                     recipeModel.setRecipeKey(itemSnapshot.getKey());
                     recipeList.add(recipeModel);
                 }
-                recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, true);
+                recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, true, "catalog");
                 rvRecipes.setAdapter(recipeAdapter);
                 recipeAdapter.notifyDataSetChanged();
                 onLoadingFinished();

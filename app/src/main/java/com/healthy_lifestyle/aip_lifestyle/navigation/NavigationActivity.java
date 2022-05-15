@@ -4,7 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -19,8 +21,10 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.navigation.NavController;
+import androidx.navigation.NavGraph;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -37,6 +41,7 @@ public class NavigationActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationBinding binding;
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +51,6 @@ public class NavigationActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         View v = navigationView.getHeaderView(0);
-
-        TextView navUsername = (TextView) v.findViewById(R.id.headerEmail);
-        Bundle bundle = getIntent().getExtras();
-        String email = bundle.getString("email");
-        navUsername.setText(email);
         onSignOutPressed(navigationView);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_about, R.id.nav_ingredients, R.id.nav_catalog, R.id.nav_my_recipes, R.id.nav_favorites, R.id.nav_meditation)
@@ -59,6 +59,32 @@ public class NavigationActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        Bundle bundle = getIntent().getExtras();
+        String startDestination = bundle.getString("fragment");
+        if (startDestination != null ) {
+            Log.d("test", startDestination);
+            switch (startDestination) {
+                case "catalog":
+                    navController.navigate(R.id.nav_catalog);
+                    break;
+                case "my_recipes":
+                    navController.navigate(R.id.nav_my_recipes);
+                    break;
+                case "favorite":
+                    navController.navigate(R.id.nav_favorites);
+                    break;
+                default:
+                    navController.navigate(R.id.nav_about);
+                    break;
+            }
+        }
+        
+        TextView navUsername = (TextView) v.findViewById(R.id.headerEmail);
+        String email = bundle.getString("email");
+        if (email != null) {
+            navUsername.setText(email);
+        }
     }
 
     @Override

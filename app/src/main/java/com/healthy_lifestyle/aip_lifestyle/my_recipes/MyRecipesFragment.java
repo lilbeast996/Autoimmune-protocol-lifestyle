@@ -119,7 +119,7 @@ public class MyRecipesFragment extends Fragment implements MyRecipesView {
 
         recipeList = new ArrayList<>();
 
-        recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, false);
+        recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, false, "my_recipes");
         mRecyclerView.setAdapter(recipeAdapter);
 
         final DocumentReference documentReference = firebaseFirestore.collection(Constants.USERS_COLLECTION).document(userId);
@@ -132,9 +132,8 @@ public class MyRecipesFragment extends Fragment implements MyRecipesView {
                     foodData.setRecipeKey(foodData.getRecipeKey());
                     recipeList.add(foodData);
                 }
-                recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, false);
+                recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, false, "my_recipes");
                 mRecyclerView.setAdapter(recipeAdapter);
-
                 recipeAdapter.notifyDataSetChanged();
                 onLoadingFinished();
             }

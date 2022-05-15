@@ -134,15 +134,13 @@ public class EditActivity extends AppCompatActivity implements EditView {
     public void btnUpdateRecipe(View view) {
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
-//        progressDialog.setMessage("Recipe Uploading...");
+        progressDialog.setMessage("Recipe Uploading...");
         progressDialog.show();
 
 
         if(uri == null){
             imageUrl = oldImageUrl;
             uploadRecipe();
-            progressDialog.setMessage("ops");
-
             progressDialog.dismiss();
         }
         else{
@@ -161,9 +159,7 @@ public class EditActivity extends AppCompatActivity implements EditView {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    progressDialog.setMessage(e.getMessage().toString());
-
-                    //progressDialog.dismiss();
+                    progressDialog.dismiss();
                 }
             });
         }

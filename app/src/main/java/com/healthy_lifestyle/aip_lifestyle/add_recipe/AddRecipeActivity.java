@@ -25,6 +25,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.healthy_lifestyle.aip_lifestyle.R;
 import com.healthy_lifestyle.aip_lifestyle.login.LoginControllerImpl;
+import com.healthy_lifestyle.aip_lifestyle.main.MainActivity;
+import com.healthy_lifestyle.aip_lifestyle.navigation.NavigationActivity;
+import com.healthy_lifestyle.aip_lifestyle.splash_screen.SplashActivity;
 
 public class AddRecipeActivity extends AppCompatActivity implements AddRecipeView {
     ImageView recipeImage;
@@ -104,6 +107,9 @@ public class AddRecipeActivity extends AppCompatActivity implements AddRecipeVie
     @Override
     public void onAddedSuccess(String message) {
         Snackbar.make(findViewById(R.id.ll_addrecipe), message, Snackbar.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), NavigationActivity.class);
+        intent.putExtra("fragment", "my_recipes");
+        startActivity(intent);
         finish();
     }
 

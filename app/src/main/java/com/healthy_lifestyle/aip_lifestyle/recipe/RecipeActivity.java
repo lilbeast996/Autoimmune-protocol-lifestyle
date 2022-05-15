@@ -46,7 +46,7 @@ public class RecipeActivity extends AppCompatActivity implements IngredientsAdap
     AppCompatButton btnEdit, btnDelete;
     TextView tvDescription, tvTitle, tvRecipe, tvPrep;
     ImageView ivFoodImage;
-    String recipeName, imageUrl, recipePrep, recipeDescription, recipeItem, recipeIngredients, recipeKey, favoriteKey;
+    String recipeName, imageUrl, recipePrep, recipeDescription, recipeItem, recipeIngredients, recipeKey, favoriteKey, fragment;
     FirebaseAuth firebaseAuth;
     Boolean triggeredFrom;
     String userId;
@@ -142,8 +142,10 @@ public class RecipeActivity extends AppCompatActivity implements IngredientsAdap
                             public void onSuccess(Void aVoid) {
                                 Snackbar. make(view,"Recipe Deleted",
                                         BaseTransientBottomBar.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(),
-                                        NavigationActivity.class));
+                                Intent intent = new Intent(getApplicationContext(),
+                                        NavigationActivity.class);
+                                intent.putExtra("fragment", "my_recipes");
+                                startActivity(intent);
                                 finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -184,18 +186,14 @@ public class RecipeActivity extends AppCompatActivity implements IngredientsAdap
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void onBackPressed() {
         Intent intent=new Intent(this, NavigationActivity.class);
+        if (this.fragment ==  null) {
+            this.fragment = "my_recipes";
+        }
+        intent.putExtra("fragment", this.fragment);
         startActivity(intent);
         finish();
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -235,6 +233,7 @@ public class RecipeActivity extends AppCompatActivity implements IngredientsAdap
             Glide.with(this).load(mBundle.getString("image")).into(ivFoodImage);
             recipeIngredients =  mBundle.getString("ingredients");
             triggeredFrom = mBundle.getBoolean("triggeredFrom");
+            fragment = mBundle.getString("fragment");
         }
     }
 

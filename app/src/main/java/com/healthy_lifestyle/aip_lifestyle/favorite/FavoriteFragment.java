@@ -59,7 +59,7 @@ public class FavoriteFragment extends Fragment implements FavoriteView {
         findById(root);
         setLayoutManager(root);
         recipeList = new ArrayList<>();
-        recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, true);
+        recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, true, "favorite");
         rvFavorites.setAdapter(recipeAdapter);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -121,7 +121,7 @@ public class FavoriteFragment extends Fragment implements FavoriteView {
                     RecipeModel foodData = documentSnapshot.toObject(RecipeModel.class);
                     recipeList.add(foodData);
                 }
-                recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, true);
+                recipeAdapter = new RecipeAdapter(root.getContext(), recipeList, true, "favorite");
                 rvFavorites.setAdapter(recipeAdapter);
                 recipeAdapter.notifyDataSetChanged();
                 onLoadingFinished();

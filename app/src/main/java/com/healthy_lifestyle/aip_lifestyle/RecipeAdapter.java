@@ -28,12 +28,14 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     private ItemClickListener clickListener;
     private Context context;
     private Boolean triggeredFromCatalog;
+    private String fragment;
 
-    public RecipeAdapter(Context context, List<RecipeModel> mRecipes, Boolean triggeredFromCatalog) {
+    public RecipeAdapter(Context context, List<RecipeModel> mRecipes, Boolean triggeredFromCatalog, String fragment) {
         this.inflater = LayoutInflater.from(context);
         this.recipeList = mRecipes;
         this.context = context;
         this.triggeredFromCatalog = triggeredFromCatalog;
+        this.fragment = fragment;
     }
 
     @Override
@@ -63,6 +65,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
                 intent.putExtra("ingredients",ingredients);
                 intent.putExtra("recipeKey", recipeList.get(holder.getAdapterPosition()).getRecipeKey());
                 intent.putExtra("triggeredFrom", triggeredFromCatalog);
+                intent.putExtra("fragment", fragment);
                 context.startActivity(intent);
             }
         });
